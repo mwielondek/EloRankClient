@@ -77,11 +77,8 @@
 		351B14D61AC450D6004413B7 /* EloRankClient */ = {
 			isa = PBXGroup;
 			children = (
-				351B14D91AC450D6004413B7 /* AppDelegate.swift */,
 				351B14DB1AC450D6004413B7 /* ViewController.swift */,
 				351B14DD1AC450D6004413B7 /* Main.storyboard */,
-				351B14E01AC450D6004413B7 /* Images.xcassets */,
-				351B14E21AC450D6004413B7 /* LaunchScreen.xib */,
 				351B14D71AC450D6004413B7 /* Supporting Files */,
 			);
 			path = EloRankClient;
@@ -90,6 +87,9 @@
 		351B14D71AC450D6004413B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				351B14E21AC450D6004413B7 /* LaunchScreen.xib */,
+				351B14E01AC450D6004413B7 /* Images.xcassets */,
+				351B14D91AC450D6004413B7 /* AppDelegate.swift */,
 				351B14D81AC450D6004413B7 /* Info.plist */,
 			);
 			name = "Supporting Files";
