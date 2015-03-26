@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		351B14DA1AC450D6004413B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14D91AC450D6004413B7 /* AppDelegate.swift */; };
+		351B14DC1AC450D6004413B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14DB1AC450D6004413B7 /* ViewController.swift */; };
+		351B14DF1AC450D6004413B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351B14DD1AC450D6004413B7 /* Main.storyboard */; };
+		351B14E11AC450D6004413B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351B14E01AC450D6004413B7 /* Images.xcassets */; };
+		351B14E41AC450D6004413B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351B14E21AC450D6004413B7 /* LaunchScreen.xib */; };
+		351B14F01AC450D6004413B7 /* EloRankClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14EF1AC450D6004413B7 /* EloRankClientTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		351B14EA1AC450D6004413B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351B14CC1AC450D6004413B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 351B14D31AC450D6004413B7;
+			remoteInfo = EloRankClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		351B14D41AC450D6004413B7 /* EloRankClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EloRankClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		351B14D81AC450D6004413B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		351B14D91AC450D6004413B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		351B14DB1AC450D6004413B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		351B14DE1AC450D6004413B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		351B14E01AC450D6004413B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		351B14E31AC450D6004413B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		351B14E91AC450D6004413B7 /* EloRankClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EloRankClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		351B14EE1AC450D6004413B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		351B14EF1AC450D6004413B7 /* EloRankClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EloRankClientTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		351B14D11AC450D6004413B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351B14E61AC450D6004413B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		351B14CB1AC450D6004413B7 = {
+			isa = PBXGroup;
+			children = (
+				351B14D61AC450D6004413B7 /* EloRankClient */,
+				351B14EC1AC450D6004413B7 /* EloRankClientTests */,
+				351B14D51AC450D6004413B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		351B14D51AC450D6004413B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				351B14D41AC450D6004413B7 /* EloRankClient.app */,
+				351B14E91AC450D6004413B7 /* EloRankClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		351B14D61AC450D6004413B7 /* EloRankClient */ = {
+			isa = PBXGroup;
+			children = (
+				351B14D91AC450D6004413B7 /* AppDelegate.swift */,
+				351B14DB1AC450D6004413B7 /* ViewController.swift */,
+				351B14DD1AC450D6004413B7 /* Main.storyboard */,
+				351B14E01AC450D6004413B7 /* Images.xcassets */,
+				351B14E21AC450D6004413B7 /* LaunchScreen.xib */,
+				351B14D71AC450D6004413B7 /* Supporting Files */,
+			);
+			path = EloRankClient;
+			sourceTree = "<group>";
+		};
+		351B14D71AC450D6004413B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				351B14D81AC450D6004413B7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		351B14EC1AC450D6004413B7 /* EloRankClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				351B14EF1AC450D6004413B7 /* EloRankClientTests.swift */,
+				351B14ED1AC450D6004413B7 /* Supporting Files */,
+			);
+			path = EloRankClientTests;
+			sourceTree = "<group>";
+		};
+		351B14ED1AC450D6004413B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				351B14EE1AC450D6004413B7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		351B14D31AC450D6004413B7 /* EloRankClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351B14F31AC450D6004413B7 /* Build configuration list for PBXNativeTarget "EloRankClient" */;
+			buildPhases = (
+				351B14D01AC450D6004413B7 /* Sources */,
+				351B14D11AC450D6004413B7 /* Frameworks */,
+				351B14D21AC450D6004413B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EloRankClient;
+			productName = EloRankClient;
+			productReference = 351B14D41AC450D6004413B7 /* EloRankClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		351B14E81AC450D6004413B7 /* EloRankClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351B14F61AC450D6004413B7 /* Build configuration list for PBXNativeTarget "EloRankClientTests" */;
+			buildPhases = (
+				351B14E51AC450D6004413B7 /* Sources */,
+				351B14E61AC450D6004413B7 /* Frameworks */,
+				351B14E71AC450D6004413B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				351B14EB1AC450D6004413B7 /* PBXTargetDependency */,
+			);
+			name = EloRankClientTests;
+			productName = EloRankClientTests;
+			productReference = 351B14E91AC450D6004413B7 /* EloRankClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		351B14CC1AC450D6004413B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Milosz Wielondek";
+				TargetAttributes = {
+					351B14D31AC450D6004413B7 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					351B14E81AC450D6004413B7 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 351B14D31AC450D6004413B7;
+					};
+				};
+			};
+			buildConfigurationList = 351B14CF1AC450D6004413B7 /* Build configuration list for PBXProject "EloRankClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 351B14CB1AC450D6004413B7;
+			productRefGroup = 351B14D51AC450D6004413B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				351B14D31AC450D6004413B7 /* EloRankClient */,
+				351B14E81AC450D6004413B7 /* EloRankClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		351B14D21AC450D6004413B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351B14DF1AC450D6004413B7 /* Main.storyboard in Resources */,
+				351B14E41AC450D6004413B7 /* LaunchScreen.xib in Resources */,
+				351B14E11AC450D6004413B7 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351B14E71AC450D6004413B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		351B14D01AC450D6004413B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351B14DC1AC450D6004413B7 /* ViewController.swift in Sources */,
+				351B14DA1AC450D6004413B7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351B14E51AC450D6004413B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351B14F01AC450D6004413B7 /* EloRankClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		351B14EB1AC450D6004413B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 351B14D31AC450D6004413B7 /* EloRankClient */;
+			targetProxy = 351B14EA1AC450D6004413B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		351B14DD1AC450D6004413B7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351B14DE1AC450D6004413B7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		351B14E21AC450D6004413B7 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351B14E31AC450D6004413B7 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		351B14F11AC450D6004413B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		351B14F21AC450D6004413B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		351B14F41AC450D6004413B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EloRankClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		351B14F51AC450D6004413B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EloRankClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		351B14F71AC450D6004413B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EloRankClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EloRankClient.app/EloRankClient";
+			};
+			name = Debug;
+		};
+		351B14F81AC450D6004413B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EloRankClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EloRankClient.app/EloRankClient";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		351B14CF1AC450D6004413B7 /* Build configuration list for PBXProject "EloRankClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351B14F11AC450D6004413B7 /* Debug */,
+				351B14F21AC450D6004413B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		351B14F31AC450D6004413B7 /* Build configuration list for PBXNativeTarget "EloRankClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351B14F41AC450D6004413B7 /* Debug */,
+				351B14F51AC450D6004413B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		351B14F61AC450D6004413B7 /* Build configuration list for PBXNativeTarget "EloRankClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351B14F71AC450D6004413B7 /* Debug */,
+				351B14F81AC450D6004413B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 351B14CC1AC450D6004413B7 /* Project object */;
+}
