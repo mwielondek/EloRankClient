@@ -13,7 +13,7 @@ private let serverURL = "http://localhost:8080"
 
 class Backend {
     
-    class func getPolls(completionHandler: (polls: [Poll]) -> ()) {
+    class func getPolls(completionHandler: (polls: [Poll]?) -> ()) {
         var polls = [Poll]()
 
         Alamofire.request(.GET, serverURL+"/polls")
@@ -24,9 +24,12 @@ class Backend {
                                     name: poll["name"] as String,
                                     alternativesCount: 1)
                     }
+                    println("Got json back")
+                    completionHandler(polls: polls)
+                } else {
+                    println("Something went wrong when trying to fetch polls :(")
+                    completionHandler(polls: nil)
                 }
-                println("Got json back")
-                completionHandler(polls: polls)
         }
     }
     

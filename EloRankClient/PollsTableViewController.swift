@@ -19,8 +19,14 @@ class PollsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Backend.getPolls {
-            self.polls = $0
+        Backend.getPolls { (var polls) in
+            if polls != nil {
+                self.polls = polls!
+            } else {
+                // something went wrong
+                var alert = UIAlertController(title: "Network error", message: "No polls to show :(", preferredStyle: UIAlertControllerStyle.Alert)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
 
