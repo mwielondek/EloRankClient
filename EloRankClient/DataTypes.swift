@@ -10,7 +10,7 @@ import Foundation
 struct Poll {
     let id: Int
     let name: String
-    let alternatives: [Alternative]
+    let alternativesCount: Int
 }
 
 struct Alternative {

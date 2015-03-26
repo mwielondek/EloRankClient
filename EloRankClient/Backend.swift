@@ -7,18 +7,27 @@
 //
 
 import Foundation
+import Alamofire
+
+private let serverURL = "http://localhost:8080"
 
 class Backend {
-    private let serverURL = NSURL(string: "localhost:8080")
     
-    class func getPolls() -> [Poll] {
-        var polls: [Poll] = []
-        
-        // dummy poll
-        var poll = Poll(id: 1, name: "Test poll", alternatives: [])
-        polls.append(poll)
-        
-        return polls
+    class func getPolls(completionHandler: (polls: [Poll]) -> ()) {
+        var polls = [Poll]()
+
+        Alamofire.request(.GET, serverURL+"/polls")
+            .responseJSON { (_,_,data,_) in
+                if let parsed = data as? [NSDictionary] {
+                    polls = parsed.map { (var poll) -> Poll in
+                        return Poll(id: poll["id"] as Int,
+                                    name: poll["name"] as String,
+                                    alternativesCount: 1)
+                    }
+                }
+                println("Got json back")
+                completionHandler(polls: polls)
+        }
     }
     
     class func getAlternatives(forPollId pollId: Int) -> [Alternative] {

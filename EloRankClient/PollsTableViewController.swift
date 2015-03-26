@@ -10,11 +10,18 @@ import UIKit
 
 class PollsTableViewController: UITableViewController {
     
-    var polls = [Poll]()
+    var polls: [Poll] = [] {
+        didSet {
+            println("New polls value set")
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        polls = Backend.getPolls()
+        Backend.getPolls {
+            self.polls = $0
+        }
     }
 
 
@@ -36,7 +43,7 @@ class PollsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.pollCellIdentifier, forIndexPath: indexPath) as UITableViewCell
 
         cell.textLabel?.text = polls[indexPath.row].name
-        cell.detailTextLabel?.text = "Alternatives: \(polls[indexPath.row].alternatives.count)"
+        cell.detailTextLabel?.text = "Alternatives: \(polls[indexPath.row].alternativesCount)"
 
         return cell
     }
