@@ -1,5 +1,5 @@
 //
-//  PollsTableViewController.swift
+//  AlternativesTableViewController.swift
 //  EloRankClient
 //
 //  Created by Milosz Wielondek on 26/03/15.
@@ -8,47 +8,48 @@
 
 import UIKit
 
-class PollsTableViewController: UITableViewController {
-    
-    var polls = [Poll]()
+class AlternativesTableViewController: UITableViewController {
 
+    var alternatives = [Alternative]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        polls = Backend.getPolls()
     }
-
-
+    
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return polls.count
+        return alternatives.count
     }
     
-    private struct Storyboard {
-        static let pollCellIdentifier = "poll"
-    }
-
+//    private struct Storyboard {
+//        static let pollCellIdentifier = "poll"
+//    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.pollCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-
-        cell.textLabel?.text = polls[indexPath.row].name
-        cell.detailTextLabel?.text = "Alternatives: \(polls[indexPath.row].alternatives.count)"
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("alternative", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = alternatives[indexPath.row].name
+        cell.detailTextLabel?.text = "Ranked \(alternatives[indexPath.row].rankedTimes) times"
+        
         return cell
     }
-
+    
+    
+    
+    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let atvc = segue.destinationViewController as? AlternativesTableViewController {
-            atvc.alternatives = Backend.getAlternatives(forPollId: 1)
-            atvc.navigationItem.title = (sender as UITableViewCell).textLabel?.text
-        }
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
     }
-
+    */
+    
 }

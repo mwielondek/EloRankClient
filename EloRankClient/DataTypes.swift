@@ -13,10 +13,12 @@ struct Poll {
     let alternatives: [Alternative]
 }
 
-
 struct Alternative {
     let id: Int
-    let url: NSURL
+    let name: String?
+    let url: String
     let score: Int
     let rankedTimes: Int
 }
+
+struct Challenge {}

@@ -13,9 +13,20 @@ class Backend {
     
     class func getPolls() -> [Poll] {
         var polls: [Poll] = []
+        
+        // dummy poll
         var poll = Poll(id: 1, name: "Test poll", alternatives: [])
         polls.append(poll)
         
         return polls
+    }
+    
+    class func getAlternatives(forPollId pollId: Int) -> [Alternative] {
+        var alternatives = [Alternative]()
+        
+        // dummy alternative
+        var alt = Alternative(id: 1, name: "Alt 1", url: "alt1.jpg", score: 400, rankedTimes: 2)
+        alternatives.append(alt)
+        return alternatives
     }
 }
