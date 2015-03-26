@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		351B14DA1AC450D6004413B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14D91AC450D6004413B7 /* AppDelegate.swift */; };
-		351B14DC1AC450D6004413B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14DB1AC450D6004413B7 /* ViewController.swift */; };
 		351B14DF1AC450D6004413B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351B14DD1AC450D6004413B7 /* Main.storyboard */; };
 		351B14E11AC450D6004413B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351B14E01AC450D6004413B7 /* Images.xcassets */; };
 		351B14E41AC450D6004413B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351B14E21AC450D6004413B7 /* LaunchScreen.xib */; };
 		351B14F01AC450D6004413B7 /* EloRankClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14EF1AC450D6004413B7 /* EloRankClientTests.swift */; };
+		351B14FA1AC45CED004413B7 /* PollsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14F91AC45CED004413B7 /* PollsTableViewController.swift */; };
+		351B14FC1AC467E8004413B7 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14FB1AC467E8004413B7 /* Backend.swift */; };
+		351B14FF1AC46AB8004413B7 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14FE1AC46AB8004413B7 /* DataTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		351B14D41AC450D6004413B7 /* EloRankClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EloRankClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		351B14D81AC450D6004413B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351B14D91AC450D6004413B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		351B14DB1AC450D6004413B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		351B14DE1AC450D6004413B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		351B14E01AC450D6004413B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		351B14E31AC450D6004413B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		351B14E91AC450D6004413B7 /* EloRankClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EloRankClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		351B14EE1AC450D6004413B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351B14EF1AC450D6004413B7 /* EloRankClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EloRankClientTests.swift; sourceTree = "<group>"; };
+		351B14F91AC45CED004413B7 /* PollsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsTableViewController.swift; sourceTree = "<group>"; };
+		351B14FB1AC467E8004413B7 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		351B14FE1AC46AB8004413B7 /* DataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,9 @@
 		351B14D61AC450D6004413B7 /* EloRankClient */ = {
 			isa = PBXGroup;
 			children = (
-				351B14DB1AC450D6004413B7 /* ViewController.swift */,
 				351B14DD1AC450D6004413B7 /* Main.storyboard */,
+				351B14F91AC45CED004413B7 /* PollsTableViewController.swift */,
+				351B14FD1AC46A94004413B7 /* Backend */,
 				351B14D71AC450D6004413B7 /* Supporting Files */,
 			);
 			path = EloRankClient;
@@ -110,6 +115,15 @@
 				351B14EE1AC450D6004413B7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		351B14FD1AC46A94004413B7 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				351B14FB1AC467E8004413B7 /* Backend.swift */,
+				351B14FE1AC46AB8004413B7 /* DataTypes.swift */,
+			);
+			name = Backend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				351B14DC1AC450D6004413B7 /* ViewController.swift in Sources */,
+				351B14FF1AC46AB8004413B7 /* DataTypes.swift in Sources */,
+				351B14FA1AC45CED004413B7 /* PollsTableViewController.swift in Sources */,
 				351B14DA1AC450D6004413B7 /* AppDelegate.swift in Sources */,
+				351B14FC1AC467E8004413B7 /* Backend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +423,7 @@
 				351B14F51AC450D6004413B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		351B14F61AC450D6004413B7 /* Build configuration list for PBXNativeTarget "EloRankClientTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				351B14F81AC450D6004413B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
