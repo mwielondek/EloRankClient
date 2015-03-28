@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3gf-PR-dQh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Polls-->
@@ -88,7 +89,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0uZ-Jc-NC4">
-                        <barButtonItem key="rightBarButtonItem" title="Rate" id="Jr2-38-ing"/>
+                        <barButtonItem key="rightBarButtonItem" title="Rate" id="Jr2-38-ing">
+                            <connections>
+                                <segue destination="gkz-8b-YLl" kind="show" identifier="rate" id="Uwb-C6-OdM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="a1B-UQ-NEX">
@@ -98,6 +103,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k1V-G3-c8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1636" y="364"/>
+        </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="nNf-RD-XXK">
+            <objects>
+                <viewController id="gkz-8b-YLl" customClass="RateViewController" customModule="EloRankClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HBZ-cN-tF4"/>
+                        <viewControllerLayoutGuide type="bottom" id="yOU-5h-h7t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J8E-K7-s7l">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-Xd-ZFl">
+                                <rect key="frame" x="0.0" y="310" width="600" height="246"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-3G-hO9">
+                                <rect key="frame" x="0.0" y="64" width="600" height="246"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="bSK-3G-hO9" secondAttribute="height" multiplier="0.3" id="Hkd-5O-k6N"/>
+                            <constraint firstItem="Lgc-Xd-ZFl" firstAttribute="top" secondItem="bSK-3G-hO9" secondAttribute="bottom" id="IFQ-Dc-GAR"/>
+                            <constraint firstItem="yOU-5h-h7t" firstAttribute="top" secondItem="Lgc-Xd-ZFl" secondAttribute="bottom" id="IVc-gr-8K9"/>
+                            <constraint firstItem="Lgc-Xd-ZFl" firstAttribute="height" secondItem="bSK-3G-hO9" secondAttribute="height" id="KVi-OB-Nmx"/>
+                            <constraint firstAttribute="centerX" secondItem="Lgc-Xd-ZFl" secondAttribute="centerX" id="a3t-L1-VWi"/>
+                            <constraint firstItem="Lgc-Xd-ZFl" firstAttribute="width" secondItem="J8E-K7-s7l" secondAttribute="width" id="d4H-TN-6cX"/>
+                            <constraint firstItem="bSK-3G-hO9" firstAttribute="top" secondItem="HBZ-cN-tF4" secondAttribute="bottom" id="hNs-El-DLq"/>
+                            <constraint firstItem="Lgc-Xd-ZFl" firstAttribute="width" secondItem="bSK-3G-hO9" secondAttribute="width" id="qqO-OM-oIS"/>
+                            <constraint firstAttribute="centerX" secondItem="bSK-3G-hO9" secondAttribute="centerX" id="xZs-Ka-cEb"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hkd-5O-k6N"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="altImageView1" destination="bSK-3G-hO9" id="5Up-MR-WLw"/>
+                        <outlet property="altImageView2" destination="Lgc-Xd-ZFl" id="wcg-0f-My2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgo-IT-wWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="1083"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZIc-Ap-7bR">

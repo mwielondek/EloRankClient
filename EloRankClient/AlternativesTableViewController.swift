@@ -38,21 +38,25 @@ class AlternativesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(PollsTableViewController.Storyboard.tableCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = alternatives[indexPath.row].name
-        cell.detailTextLabel?.text = "Ranked \(alternatives[indexPath.row].rankedTimes) times"
+        cell.detailTextLabel?.text = "Score: \(alternatives[indexPath.row].score)"
         
         return cell
     }
     
     
     
-    /*
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        if segue.identifier == "rate" {
+            if let rvc = segue.destinationViewController as? RateViewController {
+                // implement random or alts with least no of ranked times
+                println("setting alternatives with url \(alternatives[0].url)")
+                rvc.alt1 = alternatives[0]
+                rvc.alt2 = alternatives[1]
+            }
+        }
     }
-    */
     
 }

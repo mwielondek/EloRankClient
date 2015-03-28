@@ -39,7 +39,7 @@ class Backend {
                 if let parsed = data as? [NSDictionary] {
                     var alternatives = (parsed[0]["alternatives"] as? [NSDictionary])!.map { (var alt) -> Alternative in
                         // TODO: implement name serverside/db
-                        return Alternative(id: alt["id"] as Int, name: alt["name"] as String, url: alt["url"] as String,
+                        return Alternative(id: alt["id"] as Int, name: alt["name"] as String, url: serverURL + "/" + (alt["url"] as String),
                             score: alt["score"] as Int, rankedTimes: alt["ranked_times"] as Int)
                     }
                     println("Got json back (alts)")

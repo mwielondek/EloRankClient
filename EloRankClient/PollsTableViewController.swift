@@ -60,6 +60,7 @@ class PollsTableViewController: UITableViewController {
     
     struct Storyboard {
         static let tableCellIdentifier = "tableCellId"
+        static let detailCell = "detailCell"
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

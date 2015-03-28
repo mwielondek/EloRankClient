@@ -15,6 +15,7 @@
 		351B14FA1AC45CED004413B7 /* PollsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14F91AC45CED004413B7 /* PollsTableViewController.swift */; };
 		351B14FC1AC467E8004413B7 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14FB1AC467E8004413B7 /* Backend.swift */; };
 		351B14FF1AC46AB8004413B7 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351B14FE1AC46AB8004413B7 /* DataTypes.swift */; };
+		352DF3401AC75D070024E284 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352DF33F1AC75D070024E284 /* RateViewController.swift */; };
 		353750D61AC4A39D002225E3 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3592713B1AC4A342000BC393 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		359270CC1AC478FB000BC393 /* AlternativesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359270CB1AC478FB000BC393 /* AlternativesTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		351B14F91AC45CED004413B7 /* PollsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollsTableViewController.swift; sourceTree = "<group>"; };
 		351B14FB1AC467E8004413B7 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		351B14FE1AC46AB8004413B7 /* DataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
+		352DF33F1AC75D070024E284 /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		359270CB1AC478FB000BC393 /* AlternativesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativesTableViewController.swift; sourceTree = "<group>"; };
 		359271331AC4A342000BC393 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				351B14DD1AC450D6004413B7 /* Main.storyboard */,
+				352DF33F1AC75D070024E284 /* RateViewController.swift */,
 				359270CB1AC478FB000BC393 /* AlternativesTableViewController.swift */,
 				351B14F91AC45CED004413B7 /* PollsTableViewController.swift */,
 				351B14FD1AC46A94004413B7 /* Backend */,
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352DF3401AC75D070024E284 /* RateViewController.swift in Sources */,
 				351B14FF1AC46AB8004413B7 /* DataTypes.swift in Sources */,
 				351B14FA1AC45CED004413B7 /* PollsTableViewController.swift in Sources */,
 				359270CC1AC478FB000BC393 /* AlternativesTableViewController.swift in Sources */,
