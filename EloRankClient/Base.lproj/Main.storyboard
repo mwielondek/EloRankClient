@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="poll" textLabel="ZOa-aw-yal" detailTextLabel="hpW-KU-z9W" style="IBUITableViewCellStyleValue1" id="R2j-eE-mRa">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCellId" textLabel="ZOa-aw-yal" detailTextLabel="hpW-KU-z9W" style="IBUITableViewCellStyleValue1" id="R2j-eE-mRa">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R2j-eE-mRa" id="RK8-Mc-maG">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -43,6 +43,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Polls" id="4po-Ip-vZu"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="YKO-6o-z8c">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfy-wU-arS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alternative" textLabel="JOB-bl-gli" detailTextLabel="0ZL-fp-eoS" style="IBUITableViewCellStyleValue1" id="Shq-ZS-dF8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCellId" textLabel="JOB-bl-gli" detailTextLabel="0ZL-fp-eoS" style="IBUITableViewCellStyleValue1" id="Shq-ZS-dF8">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Shq-ZS-dF8" id="jw5-12-ImD">
                                     <autoresizingMask key="autoresizingMask"/>

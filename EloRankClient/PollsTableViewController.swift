@@ -19,14 +19,24 @@ class PollsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        
+        // auto refresh
+        self.refreshControl?.beginRefreshing()
+        refresh()
+    }
+    
+    func refresh() {
         Backend.getPolls { (var polls) in
             if polls != nil {
                 self.polls = polls!
             } else {
                 // something went wrong
                 var alert = UIAlertController(title: "Network error", message: "No polls to show :(", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Default) { _ in self.viewDidLoad() })
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+            self.refreshControl?.endRefreshing()
         }
     }
 
@@ -41,12 +51,12 @@ class PollsTableViewController: UITableViewController {
         return polls.count
     }
     
-    private struct Storyboard {
-        static let pollCellIdentifier = "poll"
+    struct Storyboard {
+        static let tableCellIdentifier = "tableCellId"
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.pollCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.tableCellIdentifier, forIndexPath: indexPath) as UITableViewCell
 
         cell.textLabel?.text = polls[indexPath.row].name
         cell.detailTextLabel?.text = "Alternatives: \(polls[indexPath.row].alternativesCount)"
@@ -59,7 +69,10 @@ class PollsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let atvc = segue.destinationViewController as? AlternativesTableViewController {
-            atvc.alternatives = Backend.getAlternatives(forPollId: 1)
+            // remeber to change arg
+            Backend.getAlternatives(forPollId: 1) {
+                atvc.alternatives = $0 ?? []
+            }
             atvc.navigationItem.title = (sender as UITableViewCell).textLabel?.text
         }
     }

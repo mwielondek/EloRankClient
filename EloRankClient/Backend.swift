@@ -14,15 +14,14 @@ private let serverURL = "http://localhost:8080"
 class Backend {
     
     class func getPolls(completionHandler: (polls: [Poll]?) -> ()) {
-        var polls = [Poll]()
 
         Alamofire.request(.GET, serverURL+"/polls")
             .responseJSON { (_,_,data,_) in
                 if let parsed = data as? [NSDictionary] {
-                    polls = parsed.map { (var poll) -> Poll in
+                    var polls = parsed.map { (var poll) -> Poll in
                         return Poll(id: poll["id"] as Int,
                                     name: poll["name"] as String,
-                                    alternativesCount: 1)
+                                    alternativesCount: 1) // TODO: fix alternative count
                     }
                     println("Got json back")
                     completionHandler(polls: polls)
@@ -33,12 +32,20 @@ class Backend {
         }
     }
     
-    class func getAlternatives(forPollId pollId: Int) -> [Alternative] {
-        var alternatives = [Alternative]()
+    class func getAlternatives(forPollId pollId: Int, completionHandler: (alternatives: [Alternative]?) -> ()) {
+
+        Alamofire.request(.GET, serverURL+"/polls/\(pollId)")
+            .responseJSON { (_,_,data,_) in
+                if let parsed = data as? [NSDictionary] {
+                    var alternatives = (parsed[0]["alternatives"] as? [NSDictionary])!.map { (var alt) -> Alternative in
+                        // TODO: implement name serverside/db
+                        return Alternative(id: alt["id"] as Int, name: "dummy", url: alt["url"] as String,
+                            score: alt["score"] as Int, rankedTimes: alt["ranked_times"] as Int)
+                    }
+                    println("Got json back (alts)")
+                    completionHandler(alternatives: alternatives)
+                }
+        }
         
-        // dummy alternative
-        var alt = Alternative(id: 1, name: "Alt 1", url: "alt1.jpg", score: 400, rankedTimes: 2)
-        alternatives.append(alt)
-        return alternatives
     }
 }

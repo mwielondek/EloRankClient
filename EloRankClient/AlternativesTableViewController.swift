@@ -10,8 +10,12 @@ import UIKit
 
 class AlternativesTableViewController: UITableViewController {
 
-    var alternatives = [Alternative]()
-    
+    var alternatives: [Alternative] = [] {
+        didSet {
+            println("New alternatives value set")
+            tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,13 +30,10 @@ class AlternativesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return alternatives.count
     }
-    
-//    private struct Storyboard {
-//        static let pollCellIdentifier = "poll"
-//    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alternative", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(PollsTableViewController.Storyboard.tableCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = alternatives[indexPath.row].name
         cell.detailTextLabel?.text = "Ranked \(alternatives[indexPath.row].rankedTimes) times"

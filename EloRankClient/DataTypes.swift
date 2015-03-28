@@ -15,7 +15,7 @@ struct Poll {
 
 struct Alternative {
     let id: Int
-    let name: String?
+    let name: String
     let url: String
     let score: Int
     let rankedTimes: Int
