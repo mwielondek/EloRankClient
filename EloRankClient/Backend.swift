@@ -21,7 +21,7 @@ class Backend {
                     var polls = parsed.map { (var poll) -> Poll in
                         return Poll(id: poll["id"] as Int,
                                     name: poll["name"] as String,
-                                    alternativesCount: 1) // TODO: fix alternative count
+                                    alternativesCount: poll["alternativesCount"] as Int)
                     }
                     println("Got json back")
                     completionHandler(polls: polls)
@@ -39,7 +39,7 @@ class Backend {
                 if let parsed = data as? [NSDictionary] {
                     var alternatives = (parsed[0]["alternatives"] as? [NSDictionary])!.map { (var alt) -> Alternative in
                         // TODO: implement name serverside/db
-                        return Alternative(id: alt["id"] as Int, name: "dummy", url: alt["url"] as String,
+                        return Alternative(id: alt["id"] as Int, name: alt["name"] as String, url: alt["url"] as String,
                             score: alt["score"] as Int, rankedTimes: alt["ranked_times"] as Int)
                     }
                     println("Got json back (alts)")
