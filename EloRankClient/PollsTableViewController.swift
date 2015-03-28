@@ -33,7 +33,14 @@ class PollsTableViewController: UITableViewController {
             } else {
                 // something went wrong
                 var alert = UIAlertController(title: "Network error", message: "No polls to show :(", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Default) { _ in self.viewDidLoad() })
+                alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Default) { _ in
+                    self.refreshControl?.beginRefreshing()
+                    self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
+                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                        sleep(1)
+                        self.refresh()
+                    }
+                })
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             self.refreshControl?.endRefreshing()
@@ -70,9 +77,12 @@ class PollsTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let atvc = segue.destinationViewController as? AlternativesTableViewController {
             // remeber to change arg
-            Backend.getAlternatives(forPollId: 1) {
+            Backend.getAlternatives(forPollId: polls[tableView.indexPathForSelectedRow()!.row].id) {
                 atvc.alternatives = $0 ?? []
+                atvc.refreshControl?.endRefreshing()
+                atvc.refreshControl?.removeFromSuperview()
             }
+            println("preparing segue")
             atvc.navigationItem.title = (sender as UITableViewCell).textLabel?.text
         }
     }

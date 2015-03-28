@@ -18,6 +18,12 @@ class AlternativesTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl?.beginRefreshing()
+        tableView.reloadData()
+//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_UNSPECIFIED, 0)) {
+//            sleep(3)
+//            println(self.refreshControl?.removeFromSuperview())
+//        }
     }
     
     
