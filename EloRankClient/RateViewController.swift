@@ -13,16 +13,19 @@ class RateViewController: UIViewController {
     @IBOutlet weak var altImageView1: UIImageView!
     @IBOutlet weak var altImageView2: UIImageView!
     
-    var alt1: Alternative?
-    var alt2: Alternative?
+    var alt1: Alternative? {
+        didSet {
+            altImageView1.image = UIImage(data: NSData(contentsOfURL: NSURL(string: alt1!.url)!)!)
+        }
+    }
+    var alt2: Alternative? {
+        didSet {
+            altImageView2.image = UIImage(data: NSData(contentsOfURL: NSURL(string: alt2!.url)!)!)
+        }
+    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        altImageView1.image = UIImage(data: NSData(contentsOfURL: NSURL(string: alt1!.url)!)!)
-        
-        altImageView2.image = UIImage(data: NSData(contentsOfURL: NSURL(string: alt2!.url)!)!)
-        
+        super.viewDidLoad()        
     }
 
 

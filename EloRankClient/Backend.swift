@@ -22,7 +22,6 @@ var serverURL: String {
     }
     set {
         userServerURL = newValue
-        println("set new val for server url \(newValue)")
     }
 }
 
@@ -38,10 +37,8 @@ class Backend {
                                     name: poll["name"] as String,
                                     alternativesCount: poll["alternativesCount"] as Int)
                     }
-                    println("Got json back")
                     completionHandler(polls: polls)
                 } else {
-                    println("Something went wrong when trying to fetch polls :(")
                     completionHandler(polls: nil)
                 }
         }
@@ -57,10 +54,16 @@ class Backend {
                         return Alternative(id: alt["id"] as Int, name: alt["name"] as String, url: serverURL + "/" + (alt["url"] as String),
                             score: alt["score"] as Int, rankedTimes: alt["ranked_times"] as Int)
                     }
-                    println("Got json back (alts)")
                     completionHandler(alternatives: alternatives)
                 }
         }
-        
+    }
+    
+    class func getChallenge(forPollId pollId: Int, completionHandler: (alternativesId: NSDictionary?) -> ()) {
+        Alamofire.request(.GET, serverURL+"/polls/\(pollId)/challenge").responseJSON { (_,_,data,_) in
+            if let parsed = data as? NSDictionary {
+                completionHandler(alternativesId: parsed)
+            }
+        }
     }
 }

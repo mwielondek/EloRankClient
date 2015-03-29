@@ -93,14 +93,14 @@ class PollsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let atvc = segue.destinationViewController as? AlternativesTableViewController {
-            // remeber to change arg
-            Backend.getAlternatives(forPollId: polls[tableView.indexPathForSelectedRow()!.row].id) {
+            var pollId = polls[tableView.indexPathForSelectedRow()!.row].id
+            Backend.getAlternatives(forPollId: pollId) {
                 atvc.alternatives = $0 ?? []
                 atvc.refreshControl?.endRefreshing()
                 atvc.refreshControl?.removeFromSuperview()
             }
-            println("preparing segue")
             atvc.navigationItem.title = (sender as UITableViewCell).textLabel?.text
+            atvc.pollId = pollId
         }
     }
 

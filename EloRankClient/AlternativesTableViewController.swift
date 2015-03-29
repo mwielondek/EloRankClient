@@ -16,6 +16,9 @@ class AlternativesTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    var pollId: Int? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refreshControl?.beginRefreshing()
@@ -51,10 +54,11 @@ class AlternativesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "rate" {
             if let rvc = segue.destinationViewController as? RateViewController {
-                // implement random or alts with least no of ranked times
-                println("setting alternatives with url \(alternatives[0].url)")
-                rvc.alt1 = alternatives[0]
-                rvc.alt2 = alternatives[1]
+                Backend.getChallenge(forPollId: pollId!) {
+                    (var alts: NSDictionary?) in
+                    rvc.alt1 = self.alternatives.filter { $0.id == (alts!["alt1"] as Int) }[0]
+                    rvc.alt2 = self.alternatives.filter { $0.id == (alts!["alt2"] as Int) }[0]
+                }
             }
         }
     }
