@@ -18,6 +18,8 @@ class AlternativesTableViewController: UITableViewController {
         }
     }
     
+    @IBOutlet weak var rateButton: UIBarButtonItem!
+    
     var pollId: Int? = nil
     
     override func viewDidLoad() {
@@ -55,13 +57,17 @@ class AlternativesTableViewController: UITableViewController {
     }
     
     func refresh(#forceScroll: Bool) {
+        rateButton.enabled = false
         refreshControl?.beginRefreshing()
         if forceScroll {
             tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
         }
-        Backend.getAlternatives(forPollId: pollId!) {
-            self.alternatives = $0 ?? []
-            self.refreshControl?.endRefreshing()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            Backend.getAlternatives(forPollId: self.pollId!) {
+                self.alternatives = $0 ?? []
+                self.refreshControl?.endRefreshing()
+                self.rateButton.enabled = true
+            }
         }
     }
     
