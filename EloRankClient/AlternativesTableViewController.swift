@@ -12,6 +12,8 @@ class AlternativesTableViewController: UITableViewController {
 
     var alternatives: [Alternative] = [] {
         didSet {
+            // sort by score
+            alternatives.sort { $0.score > $1.score }
             tableView.reloadData()
         }
     }
