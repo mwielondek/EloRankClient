@@ -12,7 +12,6 @@ class PollsTableViewController: UITableViewController {
     
     var polls: [Poll] = [] {
         didSet {
-            println("New polls value set")
             tableView.reloadData()
         }
     }
@@ -22,33 +21,42 @@ class PollsTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         
         // auto refresh
-        self.refreshControl?.beginRefreshing()
-        refresh()
+        refresh(forceScroll: true)
     }
     
     func refresh() {
-        Backend.getPolls { (var polls) in
-            if polls != nil {
-                self.polls = polls!
-            } else {
-                // something went wrong
-                var alert = UIAlertController(title: "Network error", message: "No polls to show :(", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Cancel, handler: self.triggerRefresh))
-                alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: self.showSettings))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-            self.refreshControl?.endRefreshing()
-        }
+        refresh(forceScroll: false)
     }
     
-    func triggerRefresh(sender: AnyObject?) {
-        self.refreshControl?.beginRefreshing()
-        // scroll up to show the spinner
-        self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
+    // coming from the network error alert -> try again
+    func refresh(sender: AnyObject?) {
+        refresh(forceScroll: true)
+        // sleep for 1 sec so the spinner animation have time to show
+    }
+    
+    func refresh(#forceScroll: Bool) {
+        refreshControl?.beginRefreshing()
+        if forceScroll {
+            // scroll up to show the spinner
+            tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
+        }
+        // if run on main thread it takes precedence over the refreshControl which doesn't show up until it's too late
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-            self.refresh()
+            Backend.getPolls { (var polls) in
+                if polls != nil {
+                    self.polls = polls!
+                } else {
+                    // something went wrong
+                    var alert = UIAlertController(title: "Network error", message: "No polls to show :(", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Cancel, handler: self.refresh))
+                    alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: self.showSettings))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                self.refreshControl?.endRefreshing()
+            }
         }
     }
+
     
     func showSettings(sender: AnyObject?) {
         var dialog = UIAlertController(title: "Server settings", message: "Enter server IP", preferredStyle: UIAlertControllerStyle.Alert)
@@ -93,14 +101,8 @@ class PollsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let atvc = segue.destinationViewController as? AlternativesTableViewController {
-            var pollId = polls[tableView.indexPathForSelectedRow()!.row].id
-            Backend.getAlternatives(forPollId: pollId) {
-                atvc.alternatives = $0 ?? []
-                atvc.refreshControl?.endRefreshing()
-                atvc.refreshControl?.removeFromSuperview()
-            }
+            atvc.pollId = polls[tableView.indexPathForSelectedRow()!.row].id
             atvc.navigationItem.title = (sender as UITableViewCell).textLabel?.text
-            atvc.pollId = pollId
         }
     }
 

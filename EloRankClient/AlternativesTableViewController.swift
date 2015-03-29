@@ -12,7 +12,6 @@ class AlternativesTableViewController: UITableViewController {
 
     var alternatives: [Alternative] = [] {
         didSet {
-            println("New alternatives value set")
             tableView.reloadData()
         }
     }
@@ -21,8 +20,11 @@ class AlternativesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl?.beginRefreshing()
-        tableView.reloadData()
+        refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        refresh(forceScroll: true)
     }
     
     
@@ -44,6 +46,22 @@ class AlternativesTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "Score: \(alternatives[indexPath.row].score)"
         
         return cell
+    }
+    
+    func refresh() {
+        refresh(forceScroll: false)
+    }
+    
+    func refresh(#forceScroll: Bool) {
+        println("refreshing alts")
+        refreshControl?.beginRefreshing()
+        if forceScroll {
+            tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
+        }
+        Backend.getAlternatives(forPollId: pollId!) {
+            self.alternatives = $0 ?? []
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     
