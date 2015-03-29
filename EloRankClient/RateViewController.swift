@@ -15,7 +15,7 @@ class RateViewController: UIViewController {
     @IBAction func handleTap(sender: UITapGestureRecognizer) {
         if let image = sender.view as? UIImageView {
             // create challenge response
-            let result = image.tag // 1 if alt1, 2 if alt2, 0 if draw (not implemented client side yet)
+            let result = image.tag // 0 if alt1, 1 if alt2
             Backend.postChallengeResponse(challengeId!, results: result)
             // get next challenge
             getNewChallenge()

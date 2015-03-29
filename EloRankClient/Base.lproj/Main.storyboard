@@ -119,14 +119,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-3G-hO9">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSK-3G-hO9">
                                 <rect key="frame" x="0.0" y="64" width="600" height="246"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="yCX-xS-W1O" appends="YES" id="qao-wB-wUa"/>
                                 </connections>
                             </imageView>
-                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-Xd-ZFl">
+                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-Xd-ZFl">
                                 <rect key="frame" x="0.0" y="310" width="600" height="246"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="a5u-2d-zTc" appends="YES" id="UYb-6l-GBv"/>

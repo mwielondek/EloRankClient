@@ -70,7 +70,7 @@ class Backend {
     class func postChallengeResponse(challengeId: Int, results: Int) {
         let challenge = [
             "id": challengeId,
-            "results": results
+            "result": results
         ]
         Alamofire.request(.POST, serverURL+"/polls/challenge/\(challengeId)", parameters: challenge, encoding: .JSON)
             .responseString { (_,_,response,_) in
