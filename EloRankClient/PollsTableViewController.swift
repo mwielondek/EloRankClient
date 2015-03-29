@@ -33,18 +33,34 @@ class PollsTableViewController: UITableViewController {
             } else {
                 // something went wrong
                 var alert = UIAlertController(title: "Network error", message: "No polls to show :(", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Default) { _ in
-                    self.refreshControl?.beginRefreshing()
-                    self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
-                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-                        sleep(1)
-                        self.refresh()
-                    }
-                })
+                alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.Cancel, handler: self.triggerRefresh))
+                alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.Default, handler: self.showSettings))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             self.refreshControl?.endRefreshing()
         }
+    }
+    
+    func triggerRefresh(sender: AnyObject?) {
+        self.refreshControl?.beginRefreshing()
+        // scroll up to show the spinner
+        self.tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            self.refresh()
+        }
+    }
+    
+    func showSettings(sender: AnyObject?) {
+        var dialog = UIAlertController(title: "Server settings", message: "Enter server IP", preferredStyle: UIAlertControllerStyle.Alert)
+        dialog.addTextFieldWithConfigurationHandler {(var textfield: UITextField!) in
+            textfield.placeholder = "Enter address"
+            textfield.text = serverURL
+        }
+        dialog.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { _ in
+                serverURL = (dialog.textFields![0] as UITextField).text
+            })
+        dialog.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(dialog, animated: true, completion: nil)
     }
 
 

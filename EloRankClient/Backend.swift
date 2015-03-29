@@ -9,7 +9,22 @@
 import Foundation
 import Alamofire
 
-private let serverURL = "http://localhost:8080"
+private let defaultServerURL = "http://localhost:8080"
+private var userServerURL = ""
+
+var serverURL: String {
+    get {
+        if userServerURL != "" {
+            return userServerURL
+        } else {
+            return defaultServerURL
+        }
+    }
+    set {
+        userServerURL = newValue
+        println("set new val for server url \(newValue)")
+    }
+}
 
 class Backend {
     
