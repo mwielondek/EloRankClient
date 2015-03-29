@@ -31,7 +31,6 @@ class PollsTableViewController: UITableViewController {
     // coming from the network error alert -> try again
     func refresh(sender: AnyObject?) {
         refresh(forceScroll: true)
-        // sleep for 1 sec so the spinner animation have time to show
     }
     
     func refresh(#forceScroll: Bool) {

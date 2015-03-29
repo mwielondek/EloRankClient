@@ -12,10 +12,25 @@ class RateViewController: UIViewController {
 
     @IBOutlet weak var altImageView1: UIImageView!
     @IBOutlet weak var altImageView2: UIImageView!
+    @IBAction func handleTap(sender: UITapGestureRecognizer) {
+        if let image = sender.view as? UIImageView {
+            println("tap recognize \(image.tag)")
+            // create challenge response
+            let result = image.tag // 1 if alt1, 2 if alt2, 0 if draw (not implemented client side yet)
+            Backend.postChallengeResponse(challengeId!, results: result)
+            // get next challenge
+            getNewChallenge()
+        }
+    }
+    
+    var challengeId: Int?
+    var pollId: Int?
+    var alternatives: [Alternative] = []
     
     var alt1: Alternative? {
         didSet {
             altImageView1.image = UIImage(data: NSData(contentsOfURL: NSURL(string: alt1!.url)!)!)
+            println("new image loaded")
         }
     }
     var alt2: Alternative? {
@@ -25,7 +40,17 @@ class RateViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+    }
+    
+    func getNewChallenge() {
+        // TODO: add activity indicator
+        Backend.getChallenge(forPollId: pollId!) {
+            (var alts: NSDictionary?) in
+            self.challengeId = (alts!["id"] as Int)
+            self.alt1 = self.alternatives.filter { $0.id == (alts!["alt1"] as Int) }[0]
+            self.alt2 = self.alternatives.filter { $0.id == (alts!["alt2"] as Int) }[0]
+        }
     }
 
 

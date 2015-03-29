@@ -53,7 +53,6 @@ class AlternativesTableViewController: UITableViewController {
     }
     
     func refresh(#forceScroll: Bool) {
-        println("refreshing alts")
         refreshControl?.beginRefreshing()
         if forceScroll {
             tableView.setContentOffset(CGPoint(x: 0, y: self.tableView.contentOffset.y-self.refreshControl!.frame.size.height), animated: true)
@@ -72,11 +71,9 @@ class AlternativesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "rate" {
             if let rvc = segue.destinationViewController as? RateViewController {
-                Backend.getChallenge(forPollId: pollId!) {
-                    (var alts: NSDictionary?) in
-                    rvc.alt1 = self.alternatives.filter { $0.id == (alts!["alt1"] as Int) }[0]
-                    rvc.alt2 = self.alternatives.filter { $0.id == (alts!["alt2"] as Int) }[0]
-                }
+                rvc.pollId = pollId
+                rvc.alternatives = alternatives
+                rvc.getNewChallenge()
             }
         }
     }
